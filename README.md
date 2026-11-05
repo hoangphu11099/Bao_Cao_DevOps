@@ -10,8 +10,6 @@ Dự án minh họa quy trình DevOps cuối kỳ **Intro to DevOps** với webs
 - Frontend: https://github.com/hoangphu11099/Lashop-Fontend
 - Backend: https://github.com/hoangphu11099/Lashop-Backend
 
-> **Lưu ý về cấu trúc:** Frontend và backend hiện có repository Git riêng. Tệp README này nên được đặt ở repository nộp bài (hoặc thêm bản phù hợp vào cả hai repo), cùng với tài liệu và các cấu hình DevOps **đã loại bỏ bí mật**. Không đưa `.env`, SSH private key, token Telegram hoặc mật khẩu lên Git.
-
 ## Kiến trúc tổng quan
 
 ```mermaid
@@ -39,24 +37,24 @@ flowchart TD
 
 ## Thành phần
 
-| Nhóm | Công nghệ | Vai trò |
-| --- | --- | --- |
-| Frontend | React, Vite | Giao diện website |
-| Backend | Golang | API xử lý nghiệp vụ |
-| Database | MySQL 8.4 | Lưu dữ liệu |
-| Source control | GitHub (2 repositories) | Quản lý phiên bản |
-| CI/CD | Jenkins, Windows Agent | Checkout, lint, test, build, deploy |
-| Container | Docker, Docker Buildx, Docker Compose | Đóng gói và chạy ứng dụng |
-| Server | Ubuntu VPS | Chạy hệ thống production |
-| HTTPS | Nginx / cấu hình HTTPS hiện có | Truy cập qua tên miền |
-| Monitoring | Prometheus, Node Exporter, Blackbox Exporter, Grafana | Thu thập và trực quan hóa metrics |
-| Notification | Telegram Bot | Thông báo trạng thái Pipeline |
+| Nhóm           | Công nghệ                                             | Vai trò                             |
+| -------------- | ----------------------------------------------------- | ----------------------------------- |
+| Frontend       | React, Vite                                           | Giao diện website                   |
+| Backend        | Golang                                                | API xử lý nghiệp vụ                 |
+| Database       | MySQL 8.4                                             | Lưu dữ liệu                         |
+| Source control | GitHub (2 repositories)                               | Quản lý phiên bản                   |
+| CI/CD          | Jenkins, Windows Agent                                | Checkout, lint, test, build, deploy |
+| Container      | Docker, Docker Buildx, Docker Compose                 | Đóng gói và chạy ứng dụng           |
+| Server         | Ubuntu VPS                                            | Chạy hệ thống production            |
+| HTTPS          | Nginx / cấu hình HTTPS hiện có                        | Truy cập qua tên miền               |
+| Monitoring     | Prometheus, Node Exporter, Blackbox Exporter, Grafana | Thu thập và trực quan hóa metrics   |
+| Notification   | Telegram Bot                                          | Thông báo trạng thái Pipeline       |
 
 ## Cấu trúc dự án / hạ tầng đã sử dụng
 
 ```text
-Thi/                         # Workspace local; KHÔNG nhất thiết là 1 Git repo
-├── frontend/                # Git repo riêng: Lashop-Fontend
+Thi/
+├── frontend/
 │   ├── src/
 │   ├── Dockerfile
 │   ├── nginx.conf
@@ -66,7 +64,7 @@ Thi/                         # Workspace local; KHÔNG nhất thiết là 1 Git 
 ├── backend/                 # Git repo riêng: Lashop-Backend
 │   ├── Dockerfile
 │   └── ...
-├── compose.yaml             # Kiểm tra tên tệp thực tế trên máy trước khi nộp
+├── compose.yaml
 └── jenkins-tools/           # Công cụ/cấu hình Jenkins local (nếu được lưu tại đây)
 
 # Trên VPS:
